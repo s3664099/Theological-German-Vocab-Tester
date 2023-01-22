@@ -14,8 +14,6 @@ function checkAnswer() {
 
 	var correct = false;
 
-	console.log(attempt);
-
 	for (var x=0;x<answers.length; x++) {
 
 		if (attempt.value == answers[x].trim()) {
@@ -25,12 +23,7 @@ function checkAnswer() {
 
 	if (correct) {
 		attempt.style.backgroundColor = "LightGreen";
-		const newButt = document.getElementById("reloadButton");
-		const newButton = document.createElement("button");
-		newButton.innerText = "Next Word";
-		newButton.addEventListener("click",reloadPage);
-		newButt.appendChild(newButton);
-
+		createNextButton(attempt);
 	} else {
 		attempt.style.backgroundColor = "pink";
 	}
@@ -39,4 +32,19 @@ function checkAnswer() {
 function reloadPage() {
 	attempt.value = "";
 	window.location.reload();
+}
+
+function showAnswer() {
+	attempt = document.getElementById("input");
+	const answer = document.getElementById("giveAnswer");
+	answer.innerText=document.getElementById("eng").value;
+	createNextButton(attempt);
+}
+
+function createNextButton() {
+	const newButt = document.getElementById("reloadButton");
+	const newButton = document.createElement("button");
+	newButton.innerText = "Next Word";
+	newButton.addEventListener("click",reloadPage);
+	newButt.appendChild(newButton);
 }

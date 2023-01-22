@@ -1,0 +1,6 @@
+runtime: python37
+
+# [START gae_python_mysql_env]
+env_variables:
+    FLASK_API_KEY: yI5H4m589A6Sjq7ONlGw$C1mlZB@dqRmecD^8b9!jWoB9ZB&ClbdZXRYrWKvVY!06OSK&iwvaBemYD!sMop^J#Z7lk 
+# [END gae_python_mysql_env]
