@@ -18,15 +18,24 @@ function checkAnswer() {
 
 	for (var x=0;x<answers.length; x++) {
 
-		if (attempt.value == answers[x]) {
+		if (attempt.value == answers[x].trim()) {
 			correct = true;
 		}
 	}
 
 	if (correct) {
 		attempt.style.backgroundColor = "LightGreen";
+		const newButt = document.getElementById("reloadButton");
+		const newButton = document.createElement("button");
+		newButton.innerText = "Next Word";
+		newButton.addEventListener("click",reloadPage);
+		newButt.appendChild(newButton);
+
 	} else {
-		alert("Wrong!!!");
 		attempt.style.backgroundColor = "pink";
 	}
+}
+
+function reloadPage() {
+	window.location.reload();
 }
