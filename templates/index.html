@@ -17,12 +17,11 @@ Version: 0.1
     </head>
     <body>
     	<H1 style="text-align: center;">Theological German Vocabulary Tester</H1>
-    	<div id="display">
-    		{{german}} <input type="text" id="input">
-    		<!--<button id="buttEl" onclick="getResponse()">Ask</button>-->
-    	</div>
+        <input id="eng" type=hidden value="{{english}}">
+    	{{german}} <input type="text" id="input">
+    	<button id="buttEl" onclick="checkAnswer()">Check</button>
     </body>
-    <!--<script src="{{ url_for('static', filename = 'script.js')}}"></script>-->
+    <script src="{{ url_for('static', filename = 'script.js')}}"></script>
 </html>
 
 <!--
