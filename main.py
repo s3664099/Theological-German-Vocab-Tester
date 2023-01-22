@@ -20,4 +20,6 @@ def main():
 
 	german,english = random.choice(list(vocab.vocabulary.items()))
 
+	print(english)
+
 	return render_template("index.html",german=german,english=english)

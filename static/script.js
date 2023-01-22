@@ -37,5 +37,6 @@ function checkAnswer() {
 }
 
 function reloadPage() {
+	attempt.value = "";
 	window.location.reload();
 }
