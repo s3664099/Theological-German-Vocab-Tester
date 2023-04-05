@@ -1,9 +1,9 @@
 <!--
 File: Theological German Vocabulary Tester
 Author: David Sarkies
-Initial: 22 January 2023
-Update: 22 January 2023
-Version: 0.1
+Initial: 18 January 2023
+Update: 19 March 2023
+Version: 1.1
 -->
 
 <!DOCTYPE html>
@@ -14,20 +14,23 @@ Version: 0.1
     	<meta name="robots" content="noindex">
     	<meta charset="utf-8">
     	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+        <!--<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename = 'stylesheet.css')}}">-->        
     </head>
     <body>
     	<H1 style="text-align: center;">Theological German Vocabulary Tester</H1>
-        <input id="eng" type=hidden value="{{english}}">
-    	{{german}} <input type="text" id="input">
+        <h3 style="text-align: center; margin-top: 10px;">Score <span id="score">0</span>/30</h3>
+        <input id="eng" type=hidden value="">
+    	<label id="ger"></label> <input type="text" id="input">
     	<button id="buttEl" onclick="checkAnswer()">Check</button>
-        <button id="stuck" onclick="showAnswer()">Help, I'm stuck</button>
         <div id="giveAnswer"></div>
         <div id="reloadButton"></div>
     </body>
+    <script>{% include 'template.js' %}</script>
     <script src="{{ url_for('static', filename = 'script.js')}}"></script>
 </html>
 
 <!--
 18 January 2023 - Created File
 21 January 2023 - Moved script into seperate file
+19 March 2023 - Added external .css stylesheet
 -->

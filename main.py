@@ -2,24 +2,38 @@
 File: Theological German Vocab Tester
 Author: David Sarkies
 Initial: 22 January 2023
-Update: 23 January 2023
-Version: 0.1
+Update: 5 April 2023
+Version: 1.1
 """
 
 from flask import Flask, render_template, request, session, jsonify, make_response
 import os
 import vocab
 import random
+import copy
 
 app = Flask(__name__,
 	static_folder = 'static')
 app.secretkey = os.environ.get("FLASK_API_KEY")
 
+word_list = list(vocab.vocabulary.items())
+
 #Generates the main screen
 @app.route('/')
 def main():
 
-	#Picks a random work from the vocab list.
-	german,english = random.choice(list(vocab.vocabulary.items()))
+	#Creates a copy of the list
+	copy_list = copy.deepcopy(word_list)
+	new_list = []
 
-	return render_template("index.html",german=german,english=english)
+	for x in range(10):
+		random_index = random.randint(0,len(copy_list)-1)
+		random_element = copy_list.pop(random_index)
+		new_list.append(random_element)
+
+	return render_template("index.html",wordlist = new_list)
+
+"""
+22 January 2023 - Created File
+5 April 2023 - Changed file so that a list of 10 word pairs are sent through each time
+"""

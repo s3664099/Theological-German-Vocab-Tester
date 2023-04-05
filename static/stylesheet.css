@@ -1,0 +1,64 @@
+/*
+File: Theological German Vocab Tester stylesheet
+Author: David Sarkies
+Initial: 19 March 2023
+Update: 19 March 2023
+Version: 0.1
+*/
+
+/* Define a CSS grid with three columns */
+body {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-gap: 10px;
+}
+
+/* Center the H1 element in a single column */
+h1 {
+  text-align: center;
+  grid-row: 1;
+  grid-column: 1 / 4;
+}
+
+/* Set the position of the first input and text in the first column */
+label {
+  grid-row: 2;
+  grid-column: 1;
+  text-align: right;
+  margin-right: 20px;
+  margin-left: 40px;
+}
+input:first-child {
+  grid-row: 2;
+  grid-column: 1;
+  margin-right: 40px;
+}
+
+/* Set the position of the second input in the second column */
+  input[type="text"] {
+  grid-row: 2;
+  grid-column: 2;
+  text-align: left;
+  width: 50%;
+  margin-right: 10px;
+}
+
+/* Set the position of the buttons in the third column */
+#buttEl, #stuck {
+  grid-row: 2;
+  grid-column: 3;
+  text-align: right;
+  margin-left: 10px;
+}
+
+
+/* Set the position of the answer and reload elements below the columns */
+#giveAnswer, #reloadButton {
+  grid-row: 3;
+  grid-column: 1 / 4;
+}
+
+/*
+19 March 2023 - Initial File Creatio n
+*/

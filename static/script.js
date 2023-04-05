@@ -3,8 +3,10 @@ File: Theological German Vocab Tester
 Author: David Sarkies
 Initial: 22 January 2023
 Update: 22 January 2023
-Version: 0.2
+Version: 1.1
 */
+
+var score = 0
 
 //Checks if the answer is correct
 function checkAnswer() {
@@ -22,16 +24,36 @@ function checkAnswer() {
 	//Sets the input as green of all the words guessed
 	if (correct == 2) {
 		attempt.style.backgroundColor = "LightGreen";
-		createNextButton(attempt);
+		increaseScore(3)
 
 	//sets it as yellow if only a few
 	} else if (correct == 1) {
 		attempt.style.backgroundColor = "yellow";
+		increaseScore(1)
 
 	//Sets it red if it was wrong
 	} else {
 		attempt.style.backgroundColor = "pink";
 	}
+
+	addTupleToInput(document.getElementById("ger").innerHTML,answer.value)
+
+	updateWords()
+
+}
+
+//Moves the words above and creates a new input.
+function addTupleToInput(german,english) {
+  var div = document.createElement("div");
+  div.innerHTML = "<p>" + german + " : " + english + "</p>";
+  var input = document.getElementById("eng");
+  input.parentNode.insertBefore(div, input);
+}
+
+//Updates the score
+function increaseScore(number) {
+	score +=number;
+	document.getElementById("score").innerHTML = score;
 }
 
 //Function that goes through the answers and the attempts, and checks which are correct
@@ -93,3 +115,8 @@ function createNextButton() {
 	newButton.addEventListener("click",reloadPage);
 	newButt.appendChild(newButton);
 }
+
+/*
+22 January 2023 - Created File
+5 April 2023 - Added new functions so that 10 words are tested every time, and a score is kept
+*/
