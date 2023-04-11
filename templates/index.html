@@ -2,8 +2,8 @@
 File: Theological German Vocabulary Tester
 Author: David Sarkies
 Initial: 18 January 2023
-Update: 19 March 2023
-Version: 1.1
+Update: 11 April 2023
+Version: 1.2
 -->
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@ Version: 1.1
     	<meta name="robots" content="noindex">
     	<meta charset="utf-8">
     	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
-        <!--<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename = 'stylesheet.css')}}">-->        
+        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename = 'stylesheet.css')}}">      
     </head>
     <body>
     	<H1 style="text-align: center;">Theological German Vocabulary Tester</H1>
@@ -24,6 +24,11 @@ Version: 1.1
     	<button id="buttEl" onclick="checkAnswer()">Check</button>
         <div id="giveAnswer"></div>
         <div id="reloadButton"></div>
+        <div id="overlay">
+            <div id="frameContainer">
+                <iframe id="myFrame"></iframe>
+            </div>
+        </div>
     </body>
     <script>{% include 'template.js' %}</script>
     <script src="{{ url_for('static', filename = 'script.js')}}"></script>
@@ -33,4 +38,5 @@ Version: 1.1
 18 January 2023 - Created File
 21 January 2023 - Moved script into seperate file
 19 March 2023 - Added external .css stylesheet
+11 April 2023 - Added container to hold the iFrame
 -->
