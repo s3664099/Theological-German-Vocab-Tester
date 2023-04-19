@@ -17,6 +17,7 @@ updateWords()
 
 //Removes a word couple from the list and adds them to the inputs
 function updateWords() {
+
 	var words = wordlist[0]
 	wordlist.splice(0,1)
 	//console.log(words)

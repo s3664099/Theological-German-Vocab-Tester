@@ -1,0 +1,22 @@
+/*
+File: Theological German Vocab Tester Popup CSS file
+Author: David Sarkies
+Initial: 19 April 2023
+Update: 19 April 2023
+Version: 1.1
+*/
+
+body {
+	background-color: white;
+}
+h1, h3 {
+	text-align: center;
+}
+#button {
+	display: block;
+	margin: 0 auto;
+}
+
+/*
+19 April 2023 - Created File
+*/

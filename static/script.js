@@ -2,8 +2,8 @@
 File: Theological German Vocab Tester
 Author: David Sarkies
 Initial: 22 January 2023
-Update: 11 April 2023
-Version: 1.3
+Update: 19 April 2023
+Version: 1.4
 */
 
 var score = 0
@@ -20,31 +20,39 @@ function checkAnswer() {
 
 	//Checks how correct the answer is
 	var correct = compareAnswers(answers,attempts);
+	var correctColour = ""
 
 	//Sets the input as green of all the words guessed
 	if (correct == 2) {
-		attempt.style.backgroundColor = "LightGreen";
+		correctColour = "LightGreen";
 		increaseScore(3)
 
 	//sets it as yellow if only a few
 	} else if (correct == 1) {
-		attempt.style.backgroundColor = "yellow";
+		correctColour = "yellow";
 		increaseScore(1)
 
 	//Sets it red if it was wrong
 	} else {
-		attempt.style.backgroundColor = "pink";
+		correctColour = "pink";
 	}
 
-	addTupleToInput(document.getElementById("ger").innerHTML,answer.value)
-	updateWords()
-	openPopup()
+	addTupleToInput(document.getElementById("ger").innerHTML,answer.value, correctColour)
+
+	if (wordlist.length == 0) {
+		openPopup()
+	} else {
+		updateWords()		
+	}
+
 }
 
 //Moves the words above and creates a new input.
-function addTupleToInput(german,english) {
+//Sets the colour to display whether it worked or not
+function addTupleToInput(german,english,colour) {
   var div = document.createElement("div");
   div.innerHTML = "<p>" + german + " : " + english + "</p>";
+  div.style.backgroundColor = colour;
   var input = document.getElementById("eng");
   input.parentNode.insertBefore(div, input);
 }
@@ -116,17 +124,18 @@ function createNextButton() {
 }
 
 function openPopup() {
+
+	//Creates the popup and loads the HTML content
   var overlay = document.getElementById("overlay");
   overlay.style.display = "flex";
-  var myFrame = document.getElementById("myFrame").contentWindow.document;
-  var frameContent = "<html><head><style>body { background-color: white; } h1,h3 { text-align: center; } "
-  frameContent += "#button { display: block; margin: 0 auto; }</style>"
-  frameContent +="</head><body><h1>Congratulations</h1><h3>You win</h3><button id='button'>"
-  frameContent +="Close</button></body></html>"
-  myFrame.write(frameContent);
-  myFrame.close();
-	myFrame.getElementById("button").addEventListener("click", function() {
-  window.parent.reloadPage(); 
+  var myFrame = document.getElementById("myFrame");
+  myFrame.src = "static/endGameFrame.html";
+
+  //Adds a function call to the button in the popup
+	myFrame.addEventListener("load", function() {
+  	myFrame.contentWindow.document.getElementById("button").addEventListener("click", function() {
+    window.parent.reloadPage(); 
+  	});
 	});
 }
 
@@ -134,4 +143,7 @@ function openPopup() {
 22 January 2023 - Created File
 5 April 2023 - Added new functions so that 10 words are tested every time, and a score is kept
 11 April 2023 - Added script to display an iFrame for when all the questions have been answered
+19 April 2023 - Moved the popup html to a separate file, and updated to code to handle it.
+								Added check to check the size of the wordlist, and if it is empty opens the popup
+								otherwise gets the next word.
 */
