@@ -1,0 +1,30 @@
+<!--
+File: Theological German Vocabulary Tester Match Page
+Author: David Sarkies
+Initial: 25 April 2023
+Update: 11 April 2023
+Version: 1.0
+-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Theological German Vocabulary Tester</title>
+    	<meta name="viewport" content="initial-scale=1.0">
+    	<meta name="robots" content="noindex">
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename = 'match.css')}}">      
+    </head>
+    <body>
+    	<H1 style="text-align: center;">Theological German Vocabulary Tester</H1>
+        <h3 style="text-align: center; margin-top: 10px;">Score <span id="score">0</span>/30</h3>
+        <div id="button-container"></div>
+    </body>
+    <script>{% include 'template.js' %}</script>
+    <script src="{{ url_for('static', filename = 'match.js')}}"></script>
+</html>
+
+<!--
+25 April 2023 - Created Template
+-->

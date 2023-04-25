@@ -3,7 +3,7 @@ File: Theological German Vocab Tester
 Author: David Sarkies
 Initial: 22 January 2023
 Update: 5 April 2023
-Version: 1.1
+Version: 1.2
 """
 
 from flask import Flask, render_template, request, session, jsonify, make_response
@@ -33,7 +33,13 @@ def main():
 
 	return render_template("index.html",wordlist = new_list)
 
+@app.route('/match')
+def match():
+
+	return render_template("match.html")
+
 """
 22 January 2023 - Created File
 5 April 2023 - Changed file so that a list of 10 word pairs are sent through each time
+25 April 2023 - Added route for the match page
 """

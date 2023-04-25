@@ -1,0 +1,36 @@
+/*
+File: Theological German Vocab Tester stylesheet
+Author: David Sarkies
+Initial: 25 April 2023
+Update: 25 April 2023
+Version: 1.0
+*/
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+    
+.button {
+  padding: 10px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+    
+.button-primary {
+  background-color: blue;
+}
+    
+.button-secondary {
+  background-color: gray;
+}
+
+/*
+25 April 2023 - Initial File Creation
+*/
