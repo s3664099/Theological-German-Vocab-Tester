@@ -3,7 +3,7 @@ File: Theological German Vocab Tester
 Author: David Sarkies
 Initial: 22 January 2023
 Update: 25 April 2023
-Version: 1.3
+Version: 1.4
 """
 
 from flask import Flask, render_template, request, session, jsonify, make_response
@@ -38,8 +38,9 @@ def match():
 	count = 0
 
 	for x in word_list:
+
 		list_one.append((x[0],count))
-		list_two.append((x[1],count))
+		list_two.append((select_word(x[1]),count))
 		count +=1
 
 	random.shuffle(list_one)
@@ -47,6 +48,15 @@ def match():
 	new_list = [(list_one[i], list_two[i]) for i in range(len(list_one))]
 
 	return render_template("match.html",wordlist = new_list)
+
+#Splits the string based on commas and returns a random one.
+def select_word(word):
+
+    words = word.split(",")
+    if len(words) == 1:
+        return words[0]
+    else:
+        return random.choice(words)
 
 #Gets a list of 10 random words
 def get_list():
@@ -65,5 +75,6 @@ def get_list():
 """
 22 January 2023 - Created File
 5 April 2023 - Changed file so that a list of 10 word pairs are sent through each time
-25 April 2023 - Added route for the match page. Wrote code for match page
+25 April 2023 - Added route for the match page. Wrote code for match page. Added code to select a random word
+                if there are multiple words available
 """
