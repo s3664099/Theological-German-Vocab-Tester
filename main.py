@@ -46,7 +46,7 @@ def match():
 	random.shuffle(list_one)
 
 	new_list = [(list_one[i], list_two[i]) for i in range(len(list_one))]
-
+	
 	return render_template("match.html",wordlist = new_list)
 
 #Splits the string based on commas and returns a random one.
