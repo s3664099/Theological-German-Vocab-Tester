@@ -10,12 +10,13 @@ var score = 0;
 var german_button = '';
 var english_button = '';
 
-function german_select(button_id) {
+function german_select(button_id, lang) {
 
   button_id = button_id.id;
 
   var button = document.getElementById(button_id);
   var id_parts = button_id.split('_');
+  var other_button;
 
   // Change color of clicked button to grey
   button.style.backgroundColor = 'grey';
@@ -34,21 +35,30 @@ function german_select(button_id) {
   }
 
   // Change color of matching buttons or turn them red
-  if (english_button != '' && english_button.split('_')[1] == id_parts) {
+  if (english_button != '' && english_button.split('_')[1] == id_parts[1]) {
 
     // Matching English button already selected
     button.style.backgroundColor = 'green';
+    button.disabled = true;
+    german_button = '';
     var eng_button = document.getElementById(english_button);
     eng_button.style.backgroundColor = 'green';
+    eng_button.disabled = true;
+    english_button = '';
 
-  } else if (english_button != '' && english_button.split('_')[1] != id_parts) {
+  } else if (english_button != '' && english_button.split('_')[1] != id_parts[1]) {
 
 	button.style.backgroundColor = 'red';
 	var eng_button = document.getElementById(english_button);
     eng_button.style.backgroundColor = 'red';
 
-  } 
-
+    setTimeout( function() {
+      button.style.backgroundColor = 'blue';
+      eng_button.style.backgroundColor = 'blue';
+      german_button = '';
+      eng_button = '';
+    },2000) 
+  }
 }
 
 function english_select(button_id) {
@@ -60,6 +70,8 @@ function english_select(button_id) {
 
   // Change color of clicked button to grey
   button.style.backgroundColor = 'grey';
+
+  console.log(english_button)
 
   if (english_button == '') {
 
@@ -77,19 +89,30 @@ function english_select(button_id) {
   }
 
   // Change color of matching buttons or turn them red
-  if (german_button != '' && german_button.split('_')[1] == id_parts) {
+  if (german_button != '' && german_button.split('_')[1] == id_parts[1]) {
 
     // Matching English button already selected
     button.style.backgroundColor = 'green';
+    button.disabled = true;
+    english_button = '';
     var ger_button = document.getElementById(german_button);
     ger_button.style.backgroundColor = 'green';
+    ger_button.disabled = true;
+    german_button = '';
 
-  } else if (german_button != '' && german_button.split('_')[1] != id_parts) {
+  } else if (german_button != '' && german_button.split('_')[1] != id_parts[1]) {
 
 	button.style.backgroundColor = 'red';
 	var ger_button = document.getElementById(german_button);
     ger_button.style.backgroundColor = 'red';
-  } 
+
+    setTimeout( function() {
+      button.style.backgroundColor = 'blue';
+      ger_button.style.backgroundColor = 'blue';
+      english_button = '';
+      ger_button = '';
+    },2000)
+  }
 }
 
 /*
