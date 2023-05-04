@@ -7,16 +7,15 @@ Version: 1.2
 */
 
 var score = 0;
+var match = 10;
 var german_button = '';
 var english_button = '';
 
+//Function trigger when German Button Selected
 function german_select(button_id) {
 
   button_id = button_id.id;
-
   var button = document.getElementById(button_id);
-  var id_parts = button_id.split('_');
-  var other_button;
 
   // Change color of clicked button to grey
   button.style.backgroundColor = 'grey';
@@ -34,47 +33,19 @@ function german_select(button_id) {
     german_button = button_id;
   }
 
-  // Change color of matching buttons or turn them red
-  if (english_button != '' && english_button.split('_')[1] == id_parts[1]) {
-
-    // Matching English button already selected
-    button.style.backgroundColor = 'green';
-    button.disabled = true;
-    german_button = '';
-    var eng_button = document.getElementById(english_button);
-    eng_button.style.backgroundColor = 'green';
-    eng_button.disabled = true;
-    english_button = '';
-    score += 1;
-    update_score(score);
-
-  } else if (english_button != '' && english_button.split('_')[1] != id_parts[1]) {
-
-	button.style.backgroundColor = 'red';
-	var eng_button = document.getElementById(english_button);
-    eng_button.style.backgroundColor = 'red';
-    score -=1;
-
-    setTimeout( function() {
-      button.style.backgroundColor = 'blue';
-      eng_button.style.backgroundColor = 'blue';
-      german_button = '';
-      eng_button = '';
-    },2000) 
+  if (english_button !='') {
+    match_words(english_button,button_id);
   }
 }
 
+//Function triggered when English Button selected
 function english_select(button_id) {
 
   button_id = button_id.id;
-
   var button = document.getElementById(button_id);
-  var id_parts = button_id.split('_');
 
   // Change color of clicked button to grey
   button.style.backgroundColor = 'grey';
-
-  console.log(english_button)
 
   if (english_button == '') {
 
@@ -88,40 +59,70 @@ function english_select(button_id) {
     var prev_english_button = document.getElementById(english_button);
     prev_english_button.style.backgroundColor = 'blue';
     english_button = button_id;
-
   }
 
-  // Change color of matching buttons or turn them red
-  if (german_button != '' && german_button.split('_')[1] == id_parts[1]) {
+  if (german_button != '') {
+    match_words(german_button,button_id);
+  }
+}
 
-    // Matching English button already selected
-    button.style.backgroundColor = 'green';
-    button.disabled = true;
-    english_button = '';
-    var ger_button = document.getElementById(german_button);
-    ger_button.style.backgroundColor = 'green';
-    ger_button.disabled = true;
-    german_button = '';
+//Function to check if the words match
+function match_words(first_word,second_word) {
+
+  var first_button = document.getElementById(first_word);
+  var second_button = document.getElementById(second_word);
+
+  // Change color of matching buttons or turn them red
+  if (second_word.split('_')[1] == first_word.split('_')[1]) {
+
+    // Both buttons match
+    first_button.style.backgroundColor = 'green';
+    first_button.disabled = true;
+    second_button.style.backgroundColor = 'green';
+    second_button.disabled = true;
+
+    //Clears buttons and increases score
+    clear_buttons()
     score += 1;
+    match -= 1;
+
     update_score(score);
 
-  } else if (german_button != '' && german_button.split('_')[1] != id_parts[1]) {
+    if (match == 0) {
+      openPopup();
+    }
 
-	button.style.backgroundColor = 'red';
-	var ger_button = document.getElementById(german_button);
-    ger_button.style.backgroundColor = 'red';
+  } else if (second_word.split('_')[1] != first_word.split('_')[1]) {
+
+    first_button.style.backgroundColor = 'red';
+    second_button.style.backgroundColor = 'red';
+
     score -=1;
+
     update_score(score);
 
     setTimeout( function() {
-      button.style.backgroundColor = 'blue';
-      ger_button.style.backgroundColor = 'blue';
-      english_button = '';
-      ger_button = '';
+
+      if (first_button.style.backgroundColor == 'red') {
+        first_button.style.backgroundColor = 'blue';
+      }
+
+      if (second_button.style.backgroundColor == 'red') {
+        second_button.style.backgroundColor = 'blue';
+      }
+
+      clear_buttons();
     },2000)
   }
 }
 
+//Clears the variables that hold the details of the buttons that were pressed
+function clear_buttons() {
+  english_button = '';
+  german_button = '';
+}
+
+//Updates the score
 function update_score(score) {
   document.getElementById('score').innerHTML = score;
 }

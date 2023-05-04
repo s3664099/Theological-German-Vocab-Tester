@@ -2,8 +2,8 @@
 File: Theological German Vocabulary Tester
 Author: David Sarkies
 Initial: 18 January 2023
-Update: 11 April 2023
-Version: 1.2
+Update: 4 May 2023
+Version: 1.3
 -->
 
 <!DOCTYPE html>
@@ -32,6 +32,7 @@ Version: 1.2
         </div>
     </body>
     <script>{% include 'template.js' %}</script>
+    <script src="{{ url_for('static', filename = 'popup.js')}}"></script>
     <script src="{{ url_for('static', filename = 'script.js')}}"></script>
 </html>
 
@@ -40,4 +41,5 @@ Version: 1.2
 21 January 2023 - Moved script into seperate file
 19 March 2023 - Added external .css stylesheet
 11 April 2023 - Added container to hold the iFrame
+4 May 2023 - Added reference to popup js file.
 -->

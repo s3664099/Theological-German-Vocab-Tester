@@ -2,8 +2,8 @@
 File: Theological German Vocabulary Tester Match Page
 Author: David Sarkies
 Initial: 25 April 2023
-Update: 26 April 2023
-Version: 1.2
+Update: 4 May 2023
+Version: 1.3
 -->
 
 <!DOCTYPE html>
@@ -22,10 +22,12 @@ Version: 1.2
         <div id="button-container"></div>
     </body>
     <script>{% include 'match_template.js' %}</script>
+    <script src="{{ url_for('static', filename = 'popup.js')}}"></script>
     <script src="{{ url_for('static', filename = 'match.js')}}"></script>
 </html>
 
 <!--
 25 April 2023 - Created Template
 26 April 2023 - Removed the console.log
+4 May 2023 - Added reference to popup js file
 -->

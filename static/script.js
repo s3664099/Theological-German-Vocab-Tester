@@ -2,8 +2,8 @@
 File: Theological German Vocab Tester
 Author: David Sarkies
 Initial: 22 January 2023
-Update: 25 April 2023
-Version: 1.5
+Update: 4 May 2023
+Version: 1.6
 */
 
 var score = 0
@@ -123,23 +123,7 @@ function createNextButton() {
 	newButt.appendChild(newButton);
 }
 
-function openPopup() {
 
-	//Creates the popup and loads the HTML content
-  var overlay = document.getElementById("overlay");
-  overlay.style.display = "flex";
-  var myFrame = document.getElementById("myFrame");
-  myFrame.src = "static/endGameFrame.html";
-
-  //Adds a function call to the button in the popup
-	myFrame.addEventListener("load", function() {
-		frame = myFrame.contentWindow.document;
-		frame.getElementById("score").innerHTML = document.getElementById("score").innerHTML;
-  	frame.getElementById("button").addEventListener("click", function() {
-    window.parent.reloadPage(); 
-  	});
-	});
-}
 
 /*
 22 January 2023 - Created File
@@ -149,4 +133,5 @@ function openPopup() {
 								Added check to check the size of the wordlist, and if it is empty opens the popup
 								otherwise gets the next word.
 25 April 2023 - Added code to place the score into the frame
+4 May 2023 - Remove popup function and sent it to a separate file
 */
