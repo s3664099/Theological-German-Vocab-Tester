@@ -69,6 +69,7 @@ function removeBrackets(str) {
   return str.replace(/\s*\([^)]*\)/g, "");
 }
 
-//25 April 2023 - Created File
-//26 April 2023 - Added code that loads the words and builds the buttons that hold the words.
-		
+/*
+25 April 2023 - Created File
+26 April 2023 - Added code that loads the words and builds the buttons that hold the words.
+*/		

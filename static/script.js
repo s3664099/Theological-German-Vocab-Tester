@@ -40,7 +40,7 @@ function checkAnswer() {
 	addTupleToInput(document.getElementById("ger").innerHTML,answer.value, correctColour)
 
 	if (wordlist.length == 0) {
-		openPopup()
+		openPopup(30)
 	} else {
 		updateWords()		
 	}
@@ -100,12 +100,6 @@ function compareAnswers(answers,attempts) {
 	return correct;
 }
 
-//Refreshes the page
-function reloadPage() {
-	attempt.value = "";
-	window.location.reload();
-}
-
 //Displays the correct answer
 function showAnswer() {
 	attempt = document.getElementById("input");
@@ -122,8 +116,6 @@ function createNextButton() {
 	newButton.addEventListener("click",reloadPage);
 	newButt.appendChild(newButton);
 }
-
-
 
 /*
 22 January 2023 - Created File

@@ -89,7 +89,6 @@ function match_words(first_word,second_word) {
     update_score(score);
 
     if (match == 0) {
-      openPopup();
     }
 
   } else if (second_word.split('_')[1] != first_word.split('_')[1]) {

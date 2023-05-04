@@ -2,42 +2,13 @@
 File: Theological German Vocab Tester stylesheet
 Author: David Sarkies
 Initial: 19 March 2023
-Update: 25 April 2023
-Version: 1.2
+Update: 4 May 2023
+Version: 1.3
 */
-
-#overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: none;
-  justify-content: center;
-  align-items: center;
-}
-
-#frameContainer {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: none;
-}
-
-#myFrame {
-  width: 100%;
-  height: 200px;
-}
-
-#iframeContent {
-  background-color: white;
-  border: 1px solid black;
-}
 
 /*
 19 March 2023 - Initial File Creation
 11 April 2023 - Added CSS for the iFrame display
 25 April 2023 - Adjusted the frame height and changed the name
+4 May 2023 - Moved overlay to separate file
 */
