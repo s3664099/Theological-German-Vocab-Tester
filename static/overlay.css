@@ -2,8 +2,8 @@
 File: Theological German Vocab Tester stylesheet
 Author: David Sarkies
 Initial: 4 May 2023
-Update: 4 May 2023
-Version: 1.1
+Update: 11 May 2023
+Version: 1.2
 */
 
 #overlay {
@@ -18,10 +18,6 @@ Version: 1.1
   align-items: center;
 }
 
-.dropdown-container {
-  text-align: center;
-}
-
 #frameContainer {
   position: fixed;
   top: 50%;
@@ -32,7 +28,7 @@ Version: 1.1
 
 #myFrame {
   width: 100%;
-  height: 200px;
+  height: 250px;
 }
 
 #iframeContent {
@@ -42,4 +38,5 @@ Version: 1.1
 
 /*
 4 May 2023 - Initial File
+11 May 2023 - Removed the code styling the dropdown box
 */

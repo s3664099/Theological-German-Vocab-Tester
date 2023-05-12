@@ -2,8 +2,8 @@
 File: Theological German Vocab Tester
 Author: David Sarkies
 Initial: 22 January 2023
-Update: 25 April 2023
-Version: 1.4
+Update: 11 May 2023
+Version: 1.5
 """
 
 from flask import Flask, render_template, request, session, jsonify, make_response
@@ -23,8 +23,6 @@ word_list = list(vocab.vocabulary.items())
 def main():
 
 	new_list = get_list()
-
-	print(new_list)
 
 	return render_template("index.html",wordlist = new_list)
 
@@ -77,4 +75,5 @@ def get_list():
 5 April 2023 - Changed file so that a list of 10 word pairs are sent through each time
 25 April 2023 - Added route for the match page. Wrote code for match page. Added code to select a random word
                 if there are multiple words available
+11 May 2023 - Removed the print statement displaying the words.
 """

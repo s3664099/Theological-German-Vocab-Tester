@@ -2,8 +2,8 @@
 File: Theological German Vocab Tester
 Author: David Sarkies
 Initial: 25 April 2023
-Update: 3 May 2023
-Version: 1.2
+Update: 11 May 2023
+Version: 1.3
 */
 
 var score = 0;
@@ -89,6 +89,7 @@ function match_words(first_word,second_word) {
     update_score(score);
 
     if (match == 0) {
+      openPopup(10)
     }
 
   } else if (second_word.split('_')[1] != first_word.split('_')[1]) {
@@ -130,4 +131,5 @@ function update_score(score) {
 25 April 2023 - Created file
 26 April 2023 - Added functions to manage the match template. Currently it isn't working.
 3 May 2023 - Match now works.
+11 May 2023 - Added the function call back in to call the end game popup.
 */

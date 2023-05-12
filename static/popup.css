@@ -2,8 +2,8 @@
 File: Theological German Vocab Tester Popup CSS file
 Author: David Sarkies
 Initial: 19 April 2023
-Update: 19 April 2023
-Version: 1.1
+Update: 11 May 2023
+Version: 1.2
 */
 
 body {
@@ -12,11 +12,14 @@ body {
 h1, h3 {
 	text-align: center;
 }
-#button {
+
+#button, #dropdown-container {
+	text-align: center;
 	display: block;
 	margin: 0 auto;
 }
 
 /*
 19 April 2023 - Created File
+11 May 2023 - Added dropdown-container to the css file.
 */

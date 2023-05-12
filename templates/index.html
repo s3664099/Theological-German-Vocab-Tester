@@ -2,8 +2,8 @@
 File: Theological German Vocabulary Tester
 Author: David Sarkies
 Initial: 18 January 2023
-Update: 4 May 2023
-Version: 1.3
+Update: 11 May 2023
+Version: 1.4
 -->
 
 <!DOCTYPE html>
@@ -19,13 +19,19 @@ Version: 1.3
     </head>
     <body>
     	<H1 style="text-align: center;">Theological German Vocabulary Tester</H1>
+        <div>
+            <button class="screen_button" id="button_off" disabled>Guess Words</button>
+            <button class="screen_button" id="button_on" onclick="window.location.href='/match'">
+                    Match Words
+            </button>
+        </div>
         <h3 style="text-align: center; margin-top: 10px;">Score <span id="score">0</span>/30</h3>
         <input id="eng" type=hidden value="">
-    	<label id="ger"></label> <input type="text" id="input">
+    	<label id="ger"></label> <input type="text" id="input" 
+                                        onkeydown="if(event.keyCode === 13) {checkAnswer();}">
     	<button id="buttEl" onclick="checkAnswer()">Check</button>
         <div id="giveAnswer"></div>
         <div id="reloadButton"></div>
-        <button onclick="window.location.href = '/match'">Match</button>
         <div id="overlay">
             <div id="frameContainer">
                 <iframe id="myFrame"></iframe>
@@ -43,4 +49,5 @@ Version: 1.3
 19 March 2023 - Added external .css stylesheet
 11 April 2023 - Added container to hold the iFrame
 4 May 2023 - Added reference to popup js file and overlay css file
+11 May 2023 - Added buttons at the top to switch between screens.
 -->
