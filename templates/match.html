@@ -2,8 +2,8 @@
 File: Theological German Vocabulary Tester Match Page
 Author: David Sarkies
 Initial: 25 April 2023
-Update: 11 May 2023
-Version: 1.4
+Update: 13 May 2023
+Version: 1.5
 -->
 
 <!DOCTYPE html>
@@ -26,11 +26,13 @@ Version: 1.4
             </button>
             <button class="screen_button" id="button_off" disabled>Match Words</button>
         </div>
-        <h3 style="text-align: center; margin-top: 10px;">Score <span id="score">0</span>/10</h3>
-        <div id="button-container"></div>
-        <div id="overlay">
-            <div id="frameContainer">
-                <iframe id="myFrame"></iframe>
+        <div class="main_screen">
+            <h3 style="text-align: center; margin-top: 10px;">Score <span id="score">0</span>/10</h3>
+            <div id="button-container"></div>
+            <div id="overlay">
+                <div id="frameContainer">
+                    <iframe id="myFrame"></iframe>
+                </div>
             </div>
         </div>        
     </body>
@@ -44,4 +46,5 @@ Version: 1.4
 26 April 2023 - Removed the console.log
 4 May 2023 - Added reference to popup js file and overlay css
 11 May 2023 - Added buttons at the top to switch between screens.
+13 May 2023 - Added borders to the main screen
 -->

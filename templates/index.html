@@ -2,8 +2,8 @@
 File: Theological German Vocabulary Tester
 Author: David Sarkies
 Initial: 18 January 2023
-Update: 11 May 2023
-Version: 1.4
+Update: 13 May 2023
+Version: 1.5
 -->
 
 <!DOCTYPE html>
@@ -25,16 +25,18 @@ Version: 1.4
                     Match Words
             </button>
         </div>
-        <h3 style="text-align: center; margin-top: 10px;">Score <span id="score">0</span>/30</h3>
-        <input id="eng" type=hidden value="">
-    	<label id="ger"></label> <input type="text" id="input" 
-                                        onkeydown="if(event.keyCode === 13) {checkAnswer();}">
-    	<button id="buttEl" onclick="checkAnswer()">Check</button>
-        <div id="giveAnswer"></div>
-        <div id="reloadButton"></div>
-        <div id="overlay">
-            <div id="frameContainer">
-                <iframe id="myFrame"></iframe>
+        <div class="main_screen">
+            <h3 style="text-align: center; margin-top: 10px;">Score <span id="score">0</span>/30</h3>
+            <input id="eng" type=hidden value="">
+     	    <label id="ger"></label> <input type="text" id="input" 
+                                            onkeydown="if(event.keyCode === 13) {checkAnswer();}">
+        	<button id="buttEl" onclick="checkAnswer()">Check</button>
+            <div id="giveAnswer"></div>
+            <div id="reloadButton"></div>
+            <div id="overlay">
+                <div id="frameContainer">
+                    <iframe id="myFrame"></iframe>
+                </div>
             </div>
         </div>
     </body>
@@ -50,4 +52,5 @@ Version: 1.4
 11 April 2023 - Added container to hold the iFrame
 4 May 2023 - Added reference to popup js file and overlay css file
 11 May 2023 - Added buttons at the top to switch between screens.
+13 May 2023 - Added borders to the main screen
 -->

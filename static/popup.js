@@ -2,8 +2,8 @@
 File: Theological German Vocab Tester Template File
 Author: David Sarkies
 Initial: 4 May 2023
-Update: 11 May 2023
-Version: 1.2
+Update: 13 May 2023
+Version: 1.3
 */
 
 function openPopup(maxScore) {
@@ -53,14 +53,23 @@ function reloadPage(dropdownValue) {
 	//Checks what has been selected and directs the user there
 	if (dropdownValue == "guess") {
 		//attempt.value = "";
-		window.location.href = domain+":5000/"
+		if (domain == "http://127.0.0.1") {
+			window.location.href = domain+":5000/"
+		} else {
+			window.location.href = domain+"/"
+		}
 	} else if (dropdownValue == "match") {
 		//attempt.value = "";
-		window.location.href = domain+":5000/match"
+		if (domain == "http://127.0.0.1") {
+			window.location.href = domain+":5000/match"
+		} else {
+			window.location.href = domain+"/match"
+		}
 	}
 }
 
 /*
 4 May 2023 - Initial File
 11 May 2023 - Commented out attempt.value
+13 May 2023 - Added a switch for the site on google cloud
 */
